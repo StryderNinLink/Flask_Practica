@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Estado de Cuenta</title>
+</head>
+<body>
+    <h1>Generar Estado de Cuenta</h1>
+    <form method="POST" action="{{url_for('generate_statement')}}">
+        <label for="account">Nombre de la Cuenta</label>
+        <select name="account" id="account">
+            {% for account in accounts %}
+                <option value="{{account}}">{{account}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        
+        <button type="submit">Generar Estado</button>
+    </form>
+    <a href="{{url_for('index')}}">Volver al Menú Principal</a>
+    
+</body>
+</html>

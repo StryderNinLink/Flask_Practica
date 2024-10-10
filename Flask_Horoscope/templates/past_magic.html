@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veamos que Dijeron las Estrellas en el Pasado ✨🌟✨</title>
+</head>
+<body>
+    <h1>¿Qué predicciones pasadas veremos?</h1>
+    <form method="POST" action="{{url_for('past_magic')}}">
+        <label for="sign">Dime, ¿De qué signo quieres saber el Pasado consultado?:</label>
+        <select name="sign" id="sign" required>
+            {% for saint in saints %}
+                <option value="{{saint}}">{{saint}}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <button type="submit">Muestra El Pasado</button>
+        <br><br>
+        <a href="{{ url_for('index') }}">Regresemos</a>
+    </form>
+
+    {% if userSaint %}
+        {% if magic_quote %}
+            <h2>En El Pasado se le dijo a {{ userSaint }} esto:</h2>
+            <ul>
+                {% for quote in magic_quote %}
+                    <li>{{ quote }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>{{ userSaint }} no ha consultado antes al Oráculo.</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

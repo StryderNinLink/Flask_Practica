@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Bank</title>
+</head>
+<body>
+    <h1>Menu Banco</h1>
+    <ul>
+        <li><a href="{{url_for('create_account')}}">Crear Cuenta</a></li>
+        <li><a href="{{url_for('deposit')}}">Depositar Dinero</a></li>
+        <li><a href="{{url_for('withdraw')}}">Retirar Dinero</a></li>
+        <li><a href="{{url_for('check_balance')}}">Ver Saldo</a></li>
+        <li><a href="{{url_for('transfer')}}">Transferir Dinero</a></li>
+        <li><a href="{{url_for('generate_statement')}}">Generar Estado de Cuenta</a></li>
+    </ul>
+    <p>{{get_flashed_messages()}}</p>
+</body>
+</html>
